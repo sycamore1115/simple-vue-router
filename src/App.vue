@@ -1,19 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav" v-show="$route.name!='detail'">
+      <router-link to="/foo">首页</router-link>
+      <router-link to="/mall">商城</router-link>
+      <router-link to="/user">个人信息</router-link>
     </div>
-    <router-view/>
+    <keep-alive>
+     <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
+<script type="text/ecmascript-6">
+export default {
+
+};
+</script>
+
 <style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+#nav {
+  display: flex;
+  justify-content: space-around;
+}
+.router-link-active{
+  color : red
+}
 </style>
